@@ -1,8 +1,46 @@
-*{
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
+.come-in {
+  opacity: 1;
+  animation: comeIn 1s;
+}
+/* .come-in:nth-child(even) {
+  animation-duration: 2s;
+} */
+@keyframes comeIn {
+  0% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.opaque {
+  opacity: 0;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f8f8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cdcdcd;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9c9c9c;
+}
+::-webkit-scrollbar-corner {
+  background: #9a9a9a;
+}
 
 /* Design Inspired by one of Stefan Devai's Design on Dribble */
-

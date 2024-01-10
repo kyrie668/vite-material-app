@@ -24,7 +24,7 @@ const AppContainer = styled.div`
   /* height:100vh; */
   .router-page {
     flex: 1;
-    padding: 24px;
+    padding: 2rem;
     padding-bottom: 5rem;
     > div {
       width: 100%;
@@ -55,7 +55,7 @@ const App = () => {
       <Layout></Layout>
       <div id="back-to-top-anchor"></div>
       <StoreContext.Provider value={{ storeState: state, storeDispatch: dispatch }}>
-        <div className="router-page">{outlet}</div>
+        <div className="router-page ">{outlet}</div>
       </StoreContext.Provider>
       {/* <Fab color="primary" aria-label="add" className="float-go-top" onClick={goTop}>
         <ArrowUpwardIcon />

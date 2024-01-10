@@ -2,10 +2,11 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import './index.css'
 
 export default function MasonryImageList() {
   return (
-    <Box sx={{ height: "400px", overflowY: "scroll" }}>
+    <Box sx={{ height: "400px", overflowY: "scroll" }} >
       <ImageList variant="masonry" cols={3} gap={8}>
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
