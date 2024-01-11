@@ -17,6 +17,7 @@ const AppContainer = styled.div`
   display: flex;
   background-repeat: no-repeat !important;
   background-size: cover !important;
+  min-height:100vh;
 
   flex-direction: column;
   /* background: url(Bg); */

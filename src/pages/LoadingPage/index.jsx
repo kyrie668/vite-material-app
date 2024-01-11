@@ -10,7 +10,10 @@ const LoadingPageWrapper = styled.div`
   z-index: 1005;
   flex-direction: column;
   gap: 20px;
-  position: absolute;
+  /* position: absolute; */
+  /* margin: 0 auto; */
+  /* transform:translate(-50%,-50%); */
+  
   font-size: 18px;
   font-weight: bold;
   .wheel-and-hamster {
@@ -347,7 +350,7 @@ const LoadingPageWrapper = styled.div`
 
 function LoadingPage() {
   return (
-    <LoadingPageWrapper >
+    <LoadingPageWrapper>
       <div aria-label="Orange and tan hamster running in a metal wheel" role="img" className="wheel-and-hamster">
         <div className="wheel"></div>
         <div className="hamster">
