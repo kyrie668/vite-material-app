@@ -1,5 +1,5 @@
 import { Container, Box } from "@mui/material";
-import React, { useContext, useRef, useEffect } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 import { StoreContext } from "../../App";
 import SwipeableTextMobileStepper from "../../components/Slider";
 import MasonryImageList from "../../components/ImageList";
@@ -8,33 +8,11 @@ import StickyHeadTable from "../../components/CommonTable";
 import ScrollableTabsButtonAuto from "../../components/CommonTab";
 import RecipeReviewCard from "../../components/CommonCard";
 import PeopleLineChart from "../../components/CommonBarChart";
+import useScrollContent from "../../hooks/useScrollContent";
 
 function HomePage() {
   const { storeState, storeDispatch } = useContext(StoreContext);
-  const contentRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(callback);
-    if (contentRef.current) {
-      const elements = Array.from(contentRef.current.children);
-      elements.forEach((ele) => {
-        ele.classList.add("opaque");
-        observer.observe(ele);
-      });
-    }
-    return () => observer.disconnect();
-  }, []);
-
-  const callback = (entries, instance) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const element = entry.target;
-        element.classList.remove("opaque");
-        element.classList.add("come-in");
-        instance.unobserve(element);
-      }
-    });
-  };
+  const contentRef = useScrollContent();
 
   return (
     <Box

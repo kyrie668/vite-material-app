@@ -17,8 +17,9 @@ const AppContainer = styled.div`
   display: flex;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  min-height:100vh;
-
+  min-height: 100vh;
+  /* background-color: #111936; */
+  /* color: #fff; */
   flex-direction: column;
   /* background: url(Bg); */
   /* width:100vw; */
@@ -52,7 +53,8 @@ const App = () => {
     title: "456464",
   });
   return (
-    <AppContainer style={{ background: `url(${Bg})` }}>
+    // <AppContainer style={{ background: `url(${Bg})` }}>
+    <AppContainer style={{  }}>
       <Layout></Layout>
       <div id="back-to-top-anchor"></div>
       <StoreContext.Provider value={{ storeState: state, storeDispatch: dispatch }}>
