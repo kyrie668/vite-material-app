@@ -43,7 +43,7 @@ const routes = [
   // 访问其余路径的时候直接跳到首页
   {
     path: "*",
-    element: <Navigate to="/404" />,
+    element: <Navigate to="/Home" />,
   },
 ];
 export default routes;
