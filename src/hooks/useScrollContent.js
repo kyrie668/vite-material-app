@@ -15,7 +15,6 @@ const useScrollContent = (callback = cb) => {
   const contentRef = useRef(null);
 
   useEffect(() => {
-    console.log('111',111);
     const observer = new IntersectionObserver(callback);
     if (contentRef.current) {
       const elements = Array.from(contentRef.current.children);
