@@ -16,7 +16,7 @@ import { red } from "@mui/material/colors";
 
 import { useNavigate } from "react-router-dom";
 
-const pages = ["Home", "Contact", "Blog"];
+const pages = ["Home", "Contact", "Blog",'others','apple','orange','pineapple','watermelon'];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {

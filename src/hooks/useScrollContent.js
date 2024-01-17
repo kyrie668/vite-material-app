@@ -11,9 +11,10 @@ const cb = (entries, instance) => {
   });
 };
 
+
 const useScrollContent = (callback = cb) => {
   const contentRef = useRef(null);
-
+  
   useEffect(() => {
     const observer = new IntersectionObserver(callback);
     if (contentRef.current) {
