@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from "react";
 // Navigate重定向组件
 import { Navigate } from "react-router-dom";
+
 import LoadingPage from "./pages/LoadingPage";
+import TransitionComponent from "./components/TransitionComponents";
 const HomePage = lazy(() => import("./pages/HomePage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const Page404 = lazy(() => import("./pages/Page404"));
@@ -16,7 +18,9 @@ const routes = [
     path: "/Home",
     element: (
       <Suspense fallback={<LoadingPage />}>
-        <HomePage />
+        <TransitionComponent>
+          <HomePage />
+        </TransitionComponent>
       </Suspense>
     ),
   },
@@ -24,7 +28,9 @@ const routes = [
     path: "/Contact",
     element: (
       <Suspense fallback={<LoadingPage />}>
-        <ContactPage />
+        <TransitionComponent>
+          <ContactPage />
+        </TransitionComponent>
       </Suspense>
     ),
   },
@@ -32,7 +38,9 @@ const routes = [
     path: "/Blog",
     element: (
       <Suspense fallback={<LoadingPage />}>
-        <BlogPage />
+        <TransitionComponent>
+          <BlogPage />
+        </TransitionComponent>
       </Suspense>
     ),
   },

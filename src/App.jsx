@@ -7,6 +7,8 @@ import { Fab, Toolbar } from "@mui/material";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import ScrollTop from "@/components/ScrollTopComponents";
+import { TransitionProvider } from "@/context/TransitionContext";
+
 // import Bg from "@/assets/images/bg.png"
 
 const Bg = require("@/assets/images/bg.png");
@@ -54,11 +56,13 @@ const App = () => {
   });
   return (
     // <AppContainer style={{ background: `url(${Bg})` }}>
-    <AppContainer style={{  }}>
+    <AppContainer style={{}}>
       <Layout></Layout>
       <div id="back-to-top-anchor"></div>
       <StoreContext.Provider value={{ storeState: state, storeDispatch: dispatch }}>
-        <div className="router-page ">{outlet}</div>
+        <div className="router-page ">
+          <TransitionProvider>{outlet} </TransitionProvider>
+        </div>
       </StoreContext.Provider>
       {/* <Fab color="primary" aria-label="add" className="float-go-top" onClick={goTop}>
         <ArrowUpwardIcon />
