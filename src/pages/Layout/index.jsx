@@ -16,7 +16,7 @@ import { red } from "@mui/material/colors";
 
 import { useNavigate } from "react-router-dom";
 
-const pages = ["Home", "Contact", "Blog",'others','apple','orange','pineapple','watermelon'];
+const pages = ["Home", "Contact", "Blog", "others"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function ResponsiveAppBar() {
@@ -40,9 +40,9 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar  position="sticky" sx={{ backgroundColor: "#111936",maxHeight:'auto' }}>
+    <AppBar position="sticky" sx={{ backgroundColor: "#111936", maxHeight: "auto" }}>
       <Container maxWidth="false">
-        <Toolbar disableGutters >
+        <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -55,7 +55,7 @@ function ResponsiveAppBar() {
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
-              cursor:'pointer'
+              cursor: "pointer",
             }}
           >
             LOGO
@@ -142,8 +142,8 @@ function ResponsiveAppBar() {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
                 <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
-          </Avatar>
+                  R
+                </Avatar>
               </IconButton>
             </Tooltip>
             <Menu
