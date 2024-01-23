@@ -3,6 +3,9 @@
   padding: 0;
   margin: 0;
 }
+body {
+  margin: 0;
+}
 .come-in {
   opacity: 1;
   animation: comeIn 1s;
