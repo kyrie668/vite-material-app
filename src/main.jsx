@@ -6,7 +6,7 @@ import "./index.css";
 // import "@fontsource/roboto/400.css";
 // import "@fontsource/roboto/500.css";
 // import "@fontsource/roboto/700.css";
-import { HashRouter } from "react-router-dom"; //引入react-router-dom
+import { HashRouter } from "react-router-dom"; 
 import styled from "styled-components";
 export const ErrorWrapper = styled.div`
   display: flex;

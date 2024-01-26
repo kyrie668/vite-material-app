@@ -1,5 +1,5 @@
 import { Container, Box } from "@mui/material";
-import React, { useContext, useRef, useEffect, useState } from "react";
+import React, { useContext, useRef, useEffect, useState, useLayoutEffect } from "react";
 import { StoreContext } from "../../App";
 import SwipeableTextMobileStepper from "../../components/Slider";
 import MasonryImageList from "../../components/ImageList";
@@ -9,11 +9,15 @@ import ScrollableTabsButtonAuto from "../../components/CommonTab";
 import RecipeReviewCard from "../../components/CommonCard";
 import PeopleLineChart from "../../components/CommonBarChart";
 import useScrollContent from "../../hooks/useScrollContent";
+import "./index.less";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function HomePage() {
   const { storeState, storeDispatch } = useContext(StoreContext);
   const contentRef = useScrollContent();
-
   return (
     <Box
       sx={{
@@ -22,6 +26,7 @@ function HomePage() {
         flexWrap: "wrap",
         justifyContent: "flex-start",
         gap: "3rem",
+        overflowX: "hidden",
       }}
       ref={contentRef}
     >
