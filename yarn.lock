@@ -2943,6 +2943,11 @@ vite-plugin-dynamic-import@^1.5.0:
     fast-glob "^3.2.12"
     magic-string "^0.30.1"
 
+vite-plugin-electron@^0.15.6:
+  version "0.15.6"
+  resolved "https://registry.npmmirror.com/vite-plugin-electron/-/vite-plugin-electron-0.15.6.tgz#5483393ac50be3bba4b741c77206a9313393135f"
+  integrity sha512-sbjzNiH8N6Was67oIUgglW6tefahkiCTItM3MsdOAQ0xhUMxizeQMF9DhSvEBwvLvUGKYboIdIYskSchV7Akrg==
+
 vite@5.0.12:
   version "5.0.12"
   resolved "https://registry.npmmirror.com/vite/-/vite-5.0.12.tgz#8a2ffd4da36c132aec4adafe05d7adde38333c47"
