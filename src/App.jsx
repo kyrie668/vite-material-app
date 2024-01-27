@@ -4,12 +4,9 @@ import { useRoutes } from "react-router-dom";
 import Layout from "./pages/Layout";
 import styled from "styled-components";
 import { Fab, Toolbar } from "@mui/material";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import ScrollTop from "@/components/ScrollTopComponents";
 import { TransitionProvider } from "@/context/TransitionContext";
-
-// import Bg from "@/assets/images/bg.png"
 
 const Bg = require("@/assets/images/bg.png");
 
@@ -20,12 +17,7 @@ const AppContainer = styled.div`
   background-repeat: no-repeat !important;
   background-size: cover !important;
   min-height: 100vh;
-  /* background-color: #111936; */
-  /* color: #fff; */
   flex-direction: column;
-  /* background: url(Bg); */
-  /* width:100vw; */
-  /* height:100vh; */
   .router-page {
     flex: 1;
     padding: 2rem;
@@ -66,7 +58,7 @@ const App = () => {
       <div id="back-to-top-anchor"></div>
       <StoreContext.Provider value={{ storeState: state, storeDispatch: dispatch }}>
         <div className="router-page ">
-          <TransitionProvider>{outlet} </TransitionProvider>
+          <TransitionProvider>{outlet}</TransitionProvider>
         </div>
       </StoreContext.Provider>
       {/* <Fab color="primary" aria-label="add" className="float-go-top" onClick={goTop}>

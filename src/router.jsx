@@ -8,6 +8,7 @@ const HomePage = lazy(() => import("./pages/HomePage"));
 const ContactPage = lazy(() => import("./pages/ContactPage"));
 const Page404 = lazy(() => import("./pages/Page404"));
 const BlogPage = lazy(() => import("./pages/BlogPage"));
+const OthersPage = lazy(() => import("./pages/OthersPage"));
 
 const routes = [
   {
@@ -45,10 +46,19 @@ const routes = [
     ),
   },
   {
+    path: "/Others",
+    element: (
+      <Suspense fallback={<LoadingPage />}>
+        <TransitionComponent>
+          <OthersPage />
+        </TransitionComponent>
+      </Suspense>
+    ),
+  },
+  {
     path: "/404",
     element: <Page404 />,
   },
-  // 访问其余路径的时候直接跳到首页
   {
     path: "*",
     element: <Navigate to="/404" />,
