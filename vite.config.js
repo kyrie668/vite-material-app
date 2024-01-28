@@ -7,6 +7,11 @@ import commonjs from "vite-plugin-commonjs";
 export default defineConfig({
   assetsInclude: ["**/*.exr", "**/*.hdr"],
   plugins: [react(), commonjs()],
+  server: {
+    port: 8888,
+    cors: true, // 允许跨域
+    hmr: true, // 开启热更新
+  },
   base: "./",
   css: {
     preprocessorOptions: {
