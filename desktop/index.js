@@ -1,14 +1,14 @@
-const { app,globalShortcut  } = require("electron");
+const { app, globalShortcut } = require("electron");
 const { createMainWindow, createWindow } = require("./windows/mainWindow");
 const { initTray, getTray } = require("./windows/systemTray");
 
 app.on("ready", () => {
   createMainWindow();
   initTray();
-//   globalShortcut.register("CommandOrControl+Shift+i", function () {
-//     console.log('111',111);
-//     createWindow()
-//   });
+  //   globalShortcut.register("CommandOrControl+Shift+i", function () {
+  //     console.log('111',111);
+  //     createWindow()
+  //   });
 });
 app.on("certificate-error", (event, webContents, url, error, certificate, callback) => {
   event.preventDefault();

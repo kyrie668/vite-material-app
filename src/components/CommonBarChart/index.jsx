@@ -59,8 +59,8 @@ const PeopleLineChart = ({
       chart.current = echarts.init(wrapper.current, null, { renderer: "svg" });
       updateOption();
     }
-    window.addEventListener("resize", onResize, false);
-    return () => window.removeEventListener("resize", onResize, false);
+    window.addEventListener("resize", onResize, { passive: true });
+    return () => window.removeEventListener("resize", onResize, { passive: true });
   }, []);
 
   const onResize = () => {

@@ -17,7 +17,7 @@ const GridWrapper = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: pink;
+      background-color: powderblue;
       cursor: pointer;
       transition: transform 0.2s ease-in-out;
       color: #fff;
