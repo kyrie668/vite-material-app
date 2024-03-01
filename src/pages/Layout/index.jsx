@@ -40,7 +40,10 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="sticky" sx={{ backgroundColor: "#111936", maxHeight: "auto" }}>
+    <AppBar
+      position="sticky"
+      sx={{ backgroundColor: "#111936", top: window.ipcRenderer ? "20px" : "0px",alignItems:'center' }}
+    >
       <Container maxWidth="false">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />

@@ -10,8 +10,10 @@ import { TransitionProvider } from "@/context/TransitionContext";
 import MinimizeOutlinedIcon from "@mui/icons-material/MinimizeOutlined";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import Crop54OutlinedIcon from "@mui/icons-material/Crop54Outlined";
+import ZoomOutMapOutlinedIcon from "@mui/icons-material/ZoomOutMapOutlined";
+import ZoomInMapOutlinedIcon from "@mui/icons-material/ZoomInMapOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
-
+import { WINDOW_MENU_HEIGHT } from "@/theme/theme";
 const Bg = require("@/assets/images/bg.png");
 
 export const StoreContext = createContext({});
@@ -20,12 +22,17 @@ const AppContainer = styled.div`
   display: flex;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
   flex-direction: column;
   .window-menu {
-    height: 20px;
+    height: ${WINDOW_MENU_HEIGHT}px;
     display: flex;
+    position: fixed;
+    width: 100%;
+    background-color: #fff;
     justify-content: flex-end;
+    z-index: 1100;
     gap: 6px;
     align-items: center;
     -webkit-app-region: drag;
@@ -41,11 +48,13 @@ const AppContainer = styled.div`
   }
   .router-page {
     flex: 1;
-    padding: 2rem;
+    /* padding: 2rem; */
     padding-bottom: 5rem;
+    overflow-y: auto;
     > div {
       width: 100%;
       height: 100%;
+      overflow-x: auto;
     }
     @media (max-width: 800px) {
       & {
@@ -72,11 +81,13 @@ const App = () => {
     // home state
     title: "456464",
   });
+  const [isMax, setIsMax] = useState(false);
 
   const minSizeWindow = () => {
     window.ipcRenderer?.send("window-min");
   };
   const maximizeWindow = () => {
+    setIsMax(!isMax);
     window.ipcRenderer?.send("window-max");
   };
   const closeWindow = () => {
@@ -88,14 +99,14 @@ const App = () => {
     <AppContainer style={{}}>
       {window.ipcRenderer && (
         <div className="window-menu">
-          <IconButton aria-label="min" onClick={minSizeWindow}>
-            <RemoveOutlinedIcon />
+          <IconButton aria-label="min" onClick={minSizeWindow} size="small">
+            <RemoveOutlinedIcon size="small" />
           </IconButton>
-          <IconButton aria-label="max" onClick={maximizeWindow}>
-            <Crop54OutlinedIcon />
+          <IconButton aria-label="max" onClick={maximizeWindow} size="small">
+            {isMax ? <ZoomInMapOutlinedIcon size="small" /> : <ZoomOutMapOutlinedIcon size="small" />}
           </IconButton>
-          <IconButton aria-label="close" onClick={closeWindow}>
-            <CloseOutlinedIcon />
+          <IconButton aria-label="close" onClick={closeWindow} size="small">
+            <CloseOutlinedIcon size="small" />
           </IconButton>
         </div>
       )}

@@ -6,6 +6,7 @@ const GridWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 2rem;
   .masonry {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
