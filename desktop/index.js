@@ -1,5 +1,5 @@
-const { app, globalShortcut } = require("electron");
-const { createMainWindow, createWindow } = require("./windows/mainWindow");
+const { app, globalShortcut, ipcMain } = require("electron");
+const { createMainWindow, createWindow, getMainWindow } = require("./windows/mainWindow");
 const { initTray, getTray } = require("./windows/systemTray");
 
 app.on("ready", () => {
@@ -32,4 +32,35 @@ app.on("will-quit", function () {
 });
 app.on("will-finish-launching", function () {
   console.log("will-finish-launching");
+});
+//接收最小化命令
+app.on("window-min", function () {
+  console.log("min");
+  getMainWindow().minimize();
+});
+//接收最大化命令
+app.on("window-max", function () {
+  if (getMainWindow().isMaximized()) {
+    getMainWindow().restore();
+  } else {
+    getMainWindow().maximize();
+  }
+});
+//接收关闭命令
+app.on("window-close", function () {
+  getMainWindow().close();
+});
+ipcMain.on("window-min", () => {
+  getMainWindow().minimize();
+});
+ipcMain.on("window-max", () => {
+  if (getMainWindow().isMaximized()) {
+    getMainWindow().restore();
+  } else {
+    getMainWindow().maximize();
+  }
+});
+ipcMain.on("window-close", () => {
+  getMainWindow().close();
+  getTray() && getTray().destroy();
 });

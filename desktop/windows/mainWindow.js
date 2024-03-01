@@ -1,6 +1,5 @@
 const { BrowserWindow, ipcMain } = require("electron");
 const path = require("path");
-
 // const isDevelopment = import.meta.env.DEV;
 // const isDev = process.env.IS_DEV === true;
 let mainWindow = null;
@@ -12,23 +11,26 @@ function createMainWindow() {
     minHeight: 632,
     minWidth: 960,
     show: false,
-    frame: true,
+    frame: false,
     maximizable: true,
+    movable: true,
+    titleBarStyle: "hidden",
     resizable: true,
     title: "metarial-app",
     webPreferences: {
-      nodeIntegration: true,
+      contextIsolation: true,
       preload: path.resolve(__dirname, "../utils/contextBridge.js"),
+      sandbox: false
     },
     icon: path.resolve(__dirname, "../../public/logo.png"),
   });
-  console.log("111", 222);
   // if (isDev) {
   //   mainWindow.loadURL("http://localhost:8888/");
   // } else {
   //   const entryPath = path.resolve(__dirname, "../../dist/index.html");
   //   mainWindow.loadFile(entryPath);
   // }
+  mainWindow.setMenu(null);
   mainWindow.loadURL("http://localhost:8888/");
   mainWindow.webContents.openDevTools();
   mainWindow.once("ready-to-show", () => {
@@ -50,6 +52,7 @@ function createWindow() {
 
     webContents: {
       openDevTools: true, //不想要控制台直接把这段删除
+      nodeIntegration: true, // 集成Node环境
     },
   });
 
@@ -62,5 +65,5 @@ module.exports = {
   getMainWindow,
   createMainWindow,
   mainWindowIsExist,
-  createWindow
+  createWindow,
 };

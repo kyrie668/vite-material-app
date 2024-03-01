@@ -16,6 +16,7 @@
   },
   "main": "./desktop/index.js",
   "dependencies": {
+    "@electron-toolkit/preload": "^3.0.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
@@ -39,7 +40,10 @@
     "react-transition-group": "^4.4.5",
     "react-uuid": "^2.0.0",
     "styled-components": "^6.1.6",
-    "vite-plugin-commonjs": "^0.10.1"
+    "vite-plugin-commonjs": "^0.10.1",
+    "vite-plugin-electron": "^0.28.2",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "vite-plugin-optimizer": "^1.4.3"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.2.0",
