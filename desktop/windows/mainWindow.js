@@ -45,25 +45,13 @@ function getMainWindow() {
   return mainWindow;
 }
 
-function createWindow() {
-  win = new BrowserWindow({
-    width: 1200,
-    height: 600,
-
-    webContents: {
-      openDevTools: true, //不想要控制台直接把这段删除
-      nodeIntegration: true, // 集成Node环境
-    },
-  });
-
-  //不想要控制台直接把这下面段删除
-
-  win.webContents.openDevTools();
+function openDevTools() {
+  mainWindow.webContents.openDevTools();
 }
 
 module.exports = {
   getMainWindow,
   createMainWindow,
   mainWindowIsExist,
-  createWindow,
+  openDevTools,
 };

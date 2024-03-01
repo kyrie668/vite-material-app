@@ -1,14 +1,13 @@
 const { app, globalShortcut, ipcMain } = require("electron");
-const { createMainWindow, createWindow, getMainWindow } = require("./windows/mainWindow");
+const { createMainWindow, openDevTools, getMainWindow } = require("./windows/mainWindow");
 const { initTray, getTray } = require("./windows/systemTray");
 
 app.on("ready", () => {
   createMainWindow();
   initTray();
-  //   globalShortcut.register("CommandOrControl+Shift+i", function () {
-  //     console.log('111',111);
-  //     createWindow()
-  //   });
+  globalShortcut.register("CommandOrControl+Shift+i", function () {
+    openDevTools();
+  });
 });
 app.on("certificate-error", (event, webContents, url, error, certificate, callback) => {
   event.preventDefault();
@@ -18,6 +17,9 @@ app.on("before-quit", () => {
   console.log("app before-quit");
 });
 app.on("window-all-closed", function () {
+  // 解除注册的全局快捷键
+  globalShortcut.unregisterAll();
+
   console.log("window-all-closed");
 });
 app.on("activate", function () {

@@ -26,6 +26,7 @@ const AppContainer = styled.div`
   overflow: hidden;
   flex-direction: column;
   .window-menu {
+    padding : 0 1rem;
     height: ${WINDOW_MENU_HEIGHT}px;
     display: flex;
     position: fixed;
