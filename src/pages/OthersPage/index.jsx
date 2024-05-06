@@ -14,12 +14,7 @@ function OthersPage() {
   }, [detail]);
 
   const onAdd = () => {
-    // setDetail([...detail, { name: "test111", count: 1 }]);
-    // ipcRenderer.send("min-app");
-    // window.ipcRenderer.send("min-app");
-    // console.log(window.ipcRenderer.on("min-app",()=>{}));
-    window.ipcRenderer?.send("window-min");
-    console.log(window.electron);
+    setDetail([...detail, { name: "test111", count: 1 }]);
   };
 
   // 获取数据
