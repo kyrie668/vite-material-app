@@ -5,6 +5,7 @@ import Layout from "./pages/Layout";
 import styled from "styled-components";
 import { Fab, Toolbar, IconButton } from "@mui/material";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ScrollTop from "@/components/ScrollTopComponents";
 import { TransitionProvider } from "@/context/TransitionContext";
 import MinimizeOutlinedIcon from "@mui/icons-material/MinimizeOutlined";
@@ -14,6 +15,7 @@ import ZoomOutMapOutlinedIcon from "@mui/icons-material/ZoomOutMapOutlined";
 import ZoomInMapOutlinedIcon from "@mui/icons-material/ZoomInMapOutlined";
 import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import { WINDOW_MENU_HEIGHT } from "@/theme/theme";
+import { isPCRenderer } from "@/utils/utils";
 const Bg = require("@/assets/images/bg.png");
 
 export const StoreContext = createContext({});
@@ -22,11 +24,11 @@ const AppContainer = styled.div`
   display: flex;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  height: 100vh;
+  /* height: 100vh; */
   overflow: hidden;
   flex-direction: column;
   .window-menu {
-    padding : 0 1rem;
+    padding: 0 1rem;
     height: ${WINDOW_MENU_HEIGHT}px;
     display: flex;
     position: fixed;
@@ -51,12 +53,15 @@ const AppContainer = styled.div`
     flex: 1;
     /* padding: 2rem; */
     padding-bottom: 5rem;
+    padding-top: 1rem;
+    padding-left:1rem;
+    padding-right:1rem;
     overflow-y: auto;
-    > div {
+    /* > div {
       width: 100%;
       height: 100%;
       overflow-x: auto;
-    }
+    } */
     @media (max-width: 800px) {
       & {
         padding: 1rem 1rem 2rem;
@@ -98,7 +103,7 @@ const App = () => {
   return (
     // <AppContainer style={{ background: `url(${Bg})` }}>
     <AppContainer style={{}}>
-      {window.ipcRenderer && (
+      {isPCRenderer && (
         <div className="window-menu">
           <IconButton aria-label="min" onClick={minSizeWindow} size="small">
             <RemoveOutlinedIcon size="small" />

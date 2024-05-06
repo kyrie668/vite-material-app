@@ -27,7 +27,7 @@ function HomePage() {
         justifyContent: "flex-start",
         gap: "3rem",
         overflowX: "hidden",
-        padding: "2rem",
+        padding: { xs: "1rem", md: "2rem" },
       }}
       ref={contentRef}
     >

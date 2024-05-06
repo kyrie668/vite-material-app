@@ -64,6 +64,8 @@ export const formatPast = (date, type = "default", zeroFillFlag = true) => {
     }
   }
 };
+
+export const isPCRenderer = !!window.ipcRenderer;
 console.log(formatPast("2024-1-1 11:11:11")); // 3天前
 console.log(formatPast("2023-11-1 11:11:11")); // 2个月前
 console.log(formatPast("2015-07-10 21:32:01")); // 8年前

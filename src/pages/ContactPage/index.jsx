@@ -2,11 +2,12 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import Loading from "@/components/Loading";
 
+// 接收GridWrapper的props参数
+
 const GridWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 2rem;
   .masonry {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -164,7 +165,7 @@ function ContactPage() {
 
   return (
     <GridWrapper>
-      <div className="masonry" ref={masonryRef}>
+      <div className="masonry" ref={masonryRef} style={{ padding: { xs: "1rem", md: "2rem" } }}>
         {items.map(({ id, text }, index) => (
           <div key={id} className="item">
             {text}
